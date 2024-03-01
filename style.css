@@ -102,6 +102,51 @@ body {
     background-repeat: round;
     width: 100%;
     height: 100%;
+    position: relative;
+}
+
+.parent > .elevator .cab .controls {
+    display: grid;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: #d8d8d8;
+    padding: 4px;
+    border-radius: 10px;
+    transition: all 0.7s ease;
+}
+
+#elevator-dn .cab .controls {
+    right: 0;
+}
+
+#elevator .cab .controls {
+    left: 0;
+}
+
+.parent > .elevator .cab .controls > button {
+    border-radius: 50%;
+    margin: 2px;
+    background-color: dimgray;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.parent > .elevator .cab .controls > button:focus {
+    background-color: red;
+}
+
+#elevator .cab .doors:hover + .controls, #elevator .cab .controls:hover {
+    opacity: 1;
+    visibility: visible;
+    left: -2.4rem;
+}
+
+#elevator-dn .cab .doors:hover + .controls, #elevator-dn .cab .controls:hover {
+    opacity: 1;
+    visibility: visible;
+    right: -2.4rem;
 }
 
 .parent > .elevator .doors {
