@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Elevator</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+
+    <div class="parent">
+        <div class="elevator" id="elevator" data-floor="0">
+            
+            <div class="cab">
+                <div class="doors">
+                    <div class="door-left animate-door-open"></div>
+                    <div class="door-right animate-door-open"></div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="elevator" id="elevator-dn" data-floor="4">
+            <div class="cab">
+                <div class="doors">
+                    <div class="door-left animate-door-open"></div>
+                    <div class="door-right animate-door-open"></div>
+                </div>
+            </div>
+        </div>
+        <div class="floor top-floor"></div>
+        <div class="floor third-floor"></div>
+        <div class="floor second-floor"></div>
+        <div class="floor first-floor"></div>
+        <div class="floor ground-floor"></div>
+
+        <!-- Buttons -->
+        <div class="button top"><button class="btn-up" data-floor="4">⮝</button><button class="btn-down" data-floor="4">⮟</button></div>
+        <div class="button third"><button class="btn-up" data-floor="3">⮝</button><button class="btn-down" data-floor="3">⮟</button></div>
+        <div class="button second"><button class="btn-up" data-floor="2">⮝</button><button class="btn-down" data-floor="2">⮟</button></div>
+        <div class="button first"><button class="btn-up" data-floor="1">⮝</button><button class="btn-down" data-floor="1">⮟</button></div>
+        <div class="button ground"><button class="btn-up" data-floor="0">⮝</button><button class="btn-down" data-floor="0">⮟</button></div>
+    </div>  
+    
+</body>
+</html>

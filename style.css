@@ -1,0 +1,170 @@
+* {
+    --num-floors: 4;
+    --steps-taken: 3;
+    --row-gap: 20;
+    --animation-duration: 1.3s;
+}
+
+body {
+    margin: 0;
+}
+
+@keyframes doors-open {
+    0%   {width: 48%;}
+    25%  {width: 38%;}
+    50%  {width: 28%;}
+    75%  {width: 18%;}
+    100% {width: 8%;}
+}
+
+@keyframes doors-close {
+    0%   {width: 8%;}
+    25%  {width: 18%;}
+    50%  {width: 28%;}
+    75%  {width: 38%;}
+    100% {width: 48%;}
+}
+
+.animate-door-open {
+    animation-name: doors-open;
+    animation-fill-mode: forwards; /* persist animation  */
+    animation-duration: var(--animation-duration);
+}
+
+.animate-door-close {
+    animation-name: doors-close;
+    animation-duration: var(--animation-duration);
+    animation-fill-mode: backwards;
+}
+
+.parent {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: calc(1px * var(--row-gap));
+}
+
+.parent {
+    background: url("./assets/gap-rail.png");
+    background-repeat: repeat;
+    transition: 1s ease-in-out;
+    overflow-x: hidden;
+}
+
+.parent > .floor {
+    padding: 0 3000px;
+    margin: 0 -3000px;
+}
+
+.floor.top-floor {
+    background: url("./assets/top-floor.png");
+    grid-row-start: 1;
+}
+
+.floor.third-floor {
+    background: url("./assets/third-floor.png");
+    grid-row-start: 2;
+}
+
+.floor.second-floor {
+    background: url("./assets/second-floor.png");
+    grid-row-start: 3;
+}
+
+.floor.first-floor {
+    background: url("/assets/first-floor.png");
+    grid-row-start: 4;
+}
+
+.floor.ground-floor {
+    background: url("./assets/ground-floor.png");
+    grid-row-start: 5;
+}
+
+.parent > .elevator {
+    background-color: #c8c8c8;
+    background: url('/assets/elevator-bg.png');
+    position: relative;
+    margin: -3000px 0;
+    padding: 3000px 0;
+    z-index: 9;
+}
+
+.parent > .elevator .cab {
+    transition: calc(1s * var(--steps-taken)) ease-in-out;
+    transition-delay: var(--animation-duration);
+    background: url('/assets/elevator-open.png');
+    background-color: rgba(220, 20, 60, 0.49);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: round;
+    width: 100%;
+    height: 100%;
+}
+
+.parent > .elevator .doors {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.parent > .elevator .doors .door-left, .parent > .elevator .doors .door-right  {
+    background: #808080;
+    width: 48%;
+}
+
+.parent > #elevator {
+    grid-column-start: 6;
+    grid-row-start: 5;
+}
+
+.parent > #elevator-dn {
+    grid-column-start: 7;
+    grid-row-start: 1;
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 5;
+    justify-content: center;
+    text-align: end;
+}
+
+.button button {
+    border: solid 3px #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    width: 45px;
+    text-align: -webkit-right;
+    font-size: 1.7rem;
+    color: #fff;
+    background-color: #d6d6d6;
+    cursor: pointer;
+}
+
+.button button:focus {
+    color: crimson;
+    border-color: crimson;
+}
+
+.button.top {
+    grid-row-start: 1;
+}
+.button.third {
+    grid-row-start: 2;
+}
+.button.second {
+    grid-row-start: 3;
+}
+.button.first {
+    grid-row-start: 4;
+}
+.button.ground {
+    grid-row-start: 5;
+}
