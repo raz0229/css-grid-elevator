@@ -116,3 +116,12 @@ document.querySelectorAll(".btn-down").forEach((btn) => {
     }
   });
 });
+document.querySelectorAll(".controls button").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    const elevatorId = e.target.closest(".elevator").id;
+    moveElevatorToFloor(elevatorId, e.target.innerText);
+    console.log(
+      `Control button ${e.target.innerText} pressed on Elevator ${elevatorId}`
+    );
+  });
+});
