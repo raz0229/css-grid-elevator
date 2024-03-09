@@ -120,6 +120,7 @@ document.querySelectorAll(".btn-down").forEach((btn) => {
 document.querySelectorAll(".controls button").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     const elevatorId = e.target.closest(".elevator").id;
+    if (e.target.innerText === "G") e.target.innerText = 0;
     moveElevatorToFloor(elevatorId, e.target.innerText);
     console.log(
       `Control button ${e.target.innerText} pressed on Elevator ${elevatorId}`
