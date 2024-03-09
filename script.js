@@ -116,6 +116,7 @@ document.querySelectorAll(".btn-down").forEach((btn) => {
     }
   });
 });
+
 document.querySelectorAll(".controls button").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     const elevatorId = e.target.closest(".elevator").id;
